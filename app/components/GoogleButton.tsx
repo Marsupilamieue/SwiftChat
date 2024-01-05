@@ -7,7 +7,7 @@ import { signIn} from "next-auth/react"
 export default function GoogleButton() {
     return (
         <Button onClick={()=>signIn('google', {
-            callbackUrl: window.location.origin
+            callbackUrl: `${window.location.origin}/home`
         })} variant="secondary">
             Login with Google
               <Icons.google className="ml-2 h-4 w-4" />
