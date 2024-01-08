@@ -17,11 +17,11 @@ interface DesktopSidebarProps{
 
 const DesktopSidebar : React.FC<DesktopSidebarProps> = ({currentUser}) => {
     const routes = useRoutes()
+
     const [isOpen, setIsOpen] = useState(false)
     return (
         <>
-            <Dialog>
-            <ProfileModal data={currentUser}/>
+            <ProfileModal currentUser={currentUser} isOpen={isOpen} onClose={()=>{setIsOpen(false)}}/>
             <div className="
         hidden
         h-screen
@@ -54,14 +54,11 @@ const DesktopSidebar : React.FC<DesktopSidebarProps> = ({currentUser}) => {
                 </ul>
             </nav>
             <nav className="mt-4 flex flex-col justify-between items-center">
-                <DialogTrigger asChild>
-                    <div className="cursor-pointer hover:opacity-75 transition">
-                        <Avatar user={currentUser}/>
-                    </div>
-                </DialogTrigger>
+                <div onClick={() => setIsOpen(true)}  className="cursor-pointer hover:opacity-75 transition">
+                    <Avatar  user={currentUser}/>
+                </div>
             </nav>
         </div>
-        </Dialog>
         </>
     )
 }

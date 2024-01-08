@@ -24,7 +24,8 @@ const ConfirmationModal = () => {
             router.push('/conversations')
             router.refresh
         })
-        .catch(()=> toast({
+        .catch(()=> 
+        toast({
             title: "Well this did not work...",
             description: "Something went wrong, please try again",
             variant: "destructive",
@@ -71,8 +72,8 @@ const ConfirmationModal = () => {
                             </DialogHeader>
                             <DialogFooter>
                                 <DialogClose asChild>
-                                    <Button type="button" variant="secondary">
-                                    Close
+                                    <Button type="button" variant="secondary" disabled={isLoading}>
+                                        Close
                                     </Button>
                                 </DialogClose>
                                 <Button type="submit" variant="destructive" disabled={isLoading} onClick={onDelete}>

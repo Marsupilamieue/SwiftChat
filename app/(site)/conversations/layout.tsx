@@ -10,6 +10,7 @@ export default async function ConversationsLayout({children} : {children : React
         <Sidebar>
             <div className="h-screen">
                 <ConversationList 
+                    users = {users!}
                     initialItems={conversations}
                 />
                 {children}
